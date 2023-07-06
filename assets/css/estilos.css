@@ -1,0 +1,71 @@
+* {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #4e4d4d;
+  color: white;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  width: 100vw;
+}
+
+main {
+  display: flex;
+}
+
+nav {
+  padding: 20px 15%;
+  border-right: solid 1px white;
+  height: 100vh;
+}
+
+nav section {
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+nav div {
+  margin-bottom: 20px;
+}
+
+/* Propiedades */
+
+#propiedad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  box-shadow: 6px -7px rgba(9, 9, 9);
+  margin: 10px;
+  width: 22rem;
+  height: 22rem;
+  margin-bottom: 1rem;
+}
+
+.parrafo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.imagen img {
+  width: 21rem;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+#boton {
+  border-radius: 5px;
+  font-size: 1rem;
+}
