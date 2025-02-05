@@ -64,10 +64,9 @@ let borrar = document.querySelector("#borrar");
 function casa(propiedades) {
   total.innerHTML = propiedades.length; //tamano del arreglo
   inmuebles.innerHTML = ""; //limpiar la lista para que no se duplique
-  for (let inmueble of propiedades) {//recorre cada objeto dentro del array
-    let divPropiedad = document.createElement("div"); //se crea un elemento
-    divPropiedad.classList.add("item"); //se crea una clase para llamarla del css
-    divPropiedad.innerHTML = `
+  for (let inmueble of propiedades) {
+    const template = `
+    
     <article>
       <div class ="imagen">
         <img src="${inmueble.src}" alt="${inmueble.nombre}"/> 
@@ -82,15 +81,18 @@ function casa(propiedades) {
         <p> id : ${inmueble.id}</p>
         <a href="#"><button id="boton">Ver más</button></a>
      </section>
-   </article>`;
+    </article>`;
 
-    inmuebles.appendChild(divPropiedad); //agrega un elemento al final de lista
+    inmuebles.innerHTML += template;
   }
 }
 
 casa(propiedades);
 let filtrar_viviendas = () => {
-  let [{ value: cant }, { value: desde }, { value: hasta }] = entrar;
+  let [{ value: cant }, { value: desde }, { value: hasta }] = entrar; //[destructuring]hace lo mismo que los codigos de abajo
+  /*  let cant = entrar[0].value;
+  let desde = entrar[1].value;
+  let hasta = entrar[2].value;*/
   if (!desde || !hasta || !cant) {
     alert("Por favor Introduce los valores solicitados");
     return false;
@@ -113,27 +115,3 @@ let limpiar_inputs = () => {
 };
 
 borrar.addEventListener("click", limpiar_inputs);
-
-/*for (let inmueble of propiedades) {
-  const viviendas = document.querySelector(".propiedad");
-
-  const template = `
-    
-    <article class="propi">
-      <div class ="imagen">
-        <img src="${inmueble.src}"/> 
-      </div>
-      <section>
-        <h5>${inmueble.nombre}</h5>
-        <h6>${inmueble.descripcion}<h5>
-        <div class ="parrafo">
-          <p id="habitacion"> Cuartos : ${inmueble.cuartos}</p>
-          <p id="medida"> Metros : ${inmueble.metros}</p>
-        </div>
-        <p> id : ${inmueble.id}</p>
-        <a href="#"><button id="boton">Ver más</button></a>
-     </section>
-    </article>`;
-
-  viviendas.innerHTML += template;
-}*/
